@@ -295,6 +295,13 @@ public class AdjacencyListGraphTest {
     }
 
     public int tripCost(Graph graph, List<Node<String>> itinerary) {
+
+        int tripCost = 0;
+        boolean isTripPossible;
+
+
+
+        return tripCost;
     }
 
     @Test
@@ -318,6 +325,10 @@ public class AdjacencyListGraphTest {
     }
 
     public int numIslands(Graph graph) {
+
+        int numberOfIslands = 0;
+
+        return numberOfIslands;
 
     }
 
