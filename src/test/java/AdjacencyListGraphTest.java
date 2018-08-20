@@ -311,7 +311,24 @@ public class AdjacencyListGraphTest {
         isEnqueued.add(start);
 
         while (!qq.isEmpty()) {
-            
+            Node<String> current = qq.poll();
+            System.out.println("visiting: " + current);
+
+            for (Node<String> neighbor : graph.getNeighbors(current)) {
+                if (!isEnqueued.contains(neighbor)) {
+                    qq.add(neighbor);
+                    isEnqueued.add(neighbor);
+                }
+            }
         }
     }
 }
+
+
+
+
+
+
+
+
+

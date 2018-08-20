@@ -43,7 +43,7 @@ public class AdjacencyListGraph<E> implements Graph<E> {
     public void addEdge(Node<E> start, Node<E> end, int cost) {
         checkNodesExists(start, end);
 
-        addEdge(start, end);
+
 
         Map<Node<E>, Edge> options = weight.get(start);
         Edge edge = new Edge(start, end, cost);
