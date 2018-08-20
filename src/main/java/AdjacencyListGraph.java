@@ -47,6 +47,7 @@ public class AdjacencyListGraph<E> implements Graph<E> {
 
         Map<Node<E>, Edge> options = weight.get(start);
         Edge edge = new Edge(start, end, cost);
+        adjacencyList.get(start).add(end);
         options.put(end, edge);
         edges.add(edge);
 
@@ -98,7 +99,7 @@ public class AdjacencyListGraph<E> implements Graph<E> {
     // write either "node" vs "nodes" in "checkNodeExists" or "checkNodesExists"
     private void checkNodesExists(Node<E> node) {
         if (!adjacencyList.containsKey(node)) {
-            throw new IllegalArgumentException("tried to access a node that doesn't exist: " + node)
+            throw new IllegalArgumentException("tried to access a node that doesn't exist: " + node);
         }
     }
 }

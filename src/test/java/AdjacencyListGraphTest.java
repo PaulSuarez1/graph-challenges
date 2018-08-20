@@ -242,7 +242,33 @@ public class AdjacencyListGraphTest {
     }
 
     public List<Node<String>> breadthFirstTraversal(Graph<String> graph, Node<String> start) {
-    }
+            Queue<Node<String>> qq = new LinkedList<>();
+            Set<Node<String>> isEnqueued = new HashSet<>();
+
+            // creates a list that stores all the nodes
+            List<Node<String>> collectionOfNodes = new ArrayList<>();
+
+            qq.add(start);
+            isEnqueued.add(start);
+
+            while (!qq.isEmpty()) {
+                Node<String> current = qq.poll();
+                System.out.println("visiting: " + current);
+
+                // adds that current node to my list
+                collectionOfNodes.add(current);
+
+                for (Node<String> neighbor : graph.getNeighbors(current)) {
+                    if (!isEnqueued.contains(neighbor)) {
+                        qq.add(neighbor);
+                        isEnqueued.add(neighbor);
+                    }
+                }
+            }
+        System.out.println(collectionOfNodes);
+            return collectionOfNodes;
+        }
+
 
     @Test
     public void possibleDirectBusinessTrip() {
@@ -304,23 +330,23 @@ public class AdjacencyListGraphTest {
     }
 
     public void visitAllCities(Graph<String> graph, Node<String> start) {
-        Queue<Node<String>> qq = new LinkedList<>();
-        Set<Node<String>> isEnqueued = new HashSet<>();
-
-        qq.add(start);
-        isEnqueued.add(start);
-
-        while (!qq.isEmpty()) {
-            Node<String> current = qq.poll();
-            System.out.println("visiting: " + current);
-
-            for (Node<String> neighbor : graph.getNeighbors(current)) {
-                if (!isEnqueued.contains(neighbor)) {
-                    qq.add(neighbor);
-                    isEnqueued.add(neighbor);
-                }
-            }
-        }
+//        Queue<Node<String>> qq = new LinkedList<>();
+//        Set<Node<String>> isEnqueued = new HashSet<>();
+//
+//        qq.add(start);
+//        isEnqueued.add(start);
+//
+//        while (!qq.isEmpty()) {
+//            Node<String> current = qq.poll();
+//            System.out.println("visiting: " + current);
+//
+//            for (Node<String> neighbor : graph.getNeighbors(current)) {
+//                if (!isEnqueued.contains(neighbor)) {
+//                    qq.add(neighbor);
+//                    isEnqueued.add(neighbor);
+//                }
+//            }
+//        }
     }
 }
 
