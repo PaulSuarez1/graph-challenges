@@ -298,6 +298,15 @@ public class AdjacencyListGraphTest {
 
         int tripCost = 0;
         boolean isTripPossible;
+        Node<String> current;
+        Node<String> next;
+
+        for (int i = 0; i < itinerary.size() - 1; i++) {
+            current = itinerary.get(i);
+            next = itinerary.get(i+1);
+
+            if (graph.isConnected(current, next);
+        }
 
 
 
@@ -324,40 +333,16 @@ public class AdjacencyListGraphTest {
         assertEquals(2, numIslands(usa));
     }
 
-    public int numIslands(Graph graph) {
+    public int numIslands(Graph<String> graph) {
 
         int numberOfIslands = 0;
 
+        for (Node<String> node : graph.getNodes()) {
+            if (graph.getNeighbors(node).isEmpty()) {
+                numberOfIslands++;
+            }
+        }
         return numberOfIslands;
-
-    }
-
-
-
-    @Test
-
-    public void visitFromBellingham() {
-        visitAllCities(washington, bellingham);
-    }
-
-    public void visitAllCities(Graph<String> graph, Node<String> start) {
-//        Queue<Node<String>> qq = new LinkedList<>();
-//        Set<Node<String>> isEnqueued = new HashSet<>();
-//
-//        qq.add(start);
-//        isEnqueued.add(start);
-//
-//        while (!qq.isEmpty()) {
-//            Node<String> current = qq.poll();
-//            System.out.println("visiting: " + current);
-//
-//            for (Node<String> neighbor : graph.getNeighbors(current)) {
-//                if (!isEnqueued.contains(neighbor)) {
-//                    qq.add(neighbor);
-//                    isEnqueued.add(neighbor);
-//                }
-//            }
-//        }
     }
 }
 
