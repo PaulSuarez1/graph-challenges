@@ -292,5 +292,26 @@ public class AdjacencyListGraphTest {
     }
 
     public int numIslands(Graph graph) {
+
+    }
+
+
+
+    @Test
+
+    public void visitFromBellingham() {
+        visitAllCities(washington, bellingham);
+    }
+
+    public void visitAllCities(Graph<String> graph, Node<String> start) {
+        Queue<Node<String>> qq = new LinkedList<>();
+        Set<Node<String>> isEnqueued = new HashSet<>();
+
+        qq.add(start);
+        isEnqueued.add(start);
+
+        while (!qq.isEmpty()) {
+            
+        }
     }
 }
