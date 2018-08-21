@@ -297,7 +297,7 @@ public class AdjacencyListGraphTest {
     public int tripCost(Graph graph, List<Node<String>> itinerary) {
 
         int tripCost = 0;
-        boolean isTripPossible;
+        int tripNotPossible = 0;
         Node<String> current;
         Node<String> next;
 
@@ -305,11 +305,15 @@ public class AdjacencyListGraphTest {
             current = itinerary.get(i);
             next = itinerary.get(i+1);
 
-            if (graph.isConnected(current, next);
+            if (graph.isConnected(current, next)) {
+
+                tripCost += graph.getEdge(current, next).getCost();
+
+            } else {
+                System.out.println("Sorry, trip not possible");
+                return tripNotPossible;
+            }
         }
-
-
-
         return tripCost;
     }
 
